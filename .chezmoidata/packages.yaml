@@ -2,16 +2,21 @@
 # Each entry becomes its own pixi global environment.
 # Editing this file changes the rendered install script, so chezmoi re-runs it.
 pixi:
+  # Channel order = priority. conda-forge must come before bioconda.
+  channels:
+    - conda-forge
+    - bioconda
   simple:
     - nvim
     - tmux
     - zsh
-    - fzf
   environments:
     samtools:
       - "samtools"
       - "bcftools"
     bat:
+      - "fzf"
+      - "bat"
       - "pspg"
       - "less"
       - "fd-find"

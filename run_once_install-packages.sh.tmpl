@@ -12,11 +12,12 @@ if ! command -v pixi >/dev/null 2>&1; then
 fi
 
 echo "==> Installing pixi global packages"
+CHANNELS=({{ range .pixi.channels }}--channel {{ . | quote }} {{ end }})
 {{- range .pixi.simple }}
-pixi global install {{ . | quote }}
+pixi global install "${CHANNELS[@]}" {{ . | quote }}
 {{- end }}
 {{- range $env, $pkgs := .pixi.environments }}
-pixi global install --environment {{ $env | quote }}{{ range $pkgs }} {{ . | quote }}{{ end }}
+pixi global install "${CHANNELS[@]}" --environment {{ $env | quote }}{{ range $pkgs }} {{ . | quote }}{{ end }}
 {{- end }}
 
 # --- zoxide -----------------------------------------------------------------
