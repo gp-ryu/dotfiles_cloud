@@ -1,0 +1,38 @@
+# Packages installed globally with `pixi global install`.
+# Each entry becomes its own pixi global environment.
+# Editing this file changes the rendered install script, so chezmoi re-runs it.
+pixi:
+  simple:
+    - nvim
+    - tmux
+    - zsh
+    - fzf
+  environments:
+    samtools:
+      - "samtools"
+      - "bcftools"
+    bat:
+      - "pspg"
+      - "less"
+      - "fd-find"
+      - "ripgrep"
+      - 'qsv'
+      - "gdu"
+      - "yazi"
+    git:
+      - "git"
+      - "lazygit"
+      - "gitui"
+    python:
+      - "python<3.14"
+      - uv
+      - pip
+    r-base:
+      - r-base
+      - r-data.table
+      - r-tidyverse
+      - r-magrittr
+      - r-irkernel
+      - r-psych
+      - r-ggpubr
+      - r-pacman
